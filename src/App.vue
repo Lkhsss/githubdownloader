@@ -4,7 +4,6 @@ import { invoke } from "@tauri-apps/api/core";
 import "element-plus/dist/index.css";
 import { h } from 'vue'
 import { ElNotification } from 'element-plus'
-import { tr } from "element-plus/es/locales.mjs";
 const origin_data = ref({});
 const url = ref("");
 const data = ref({});
@@ -27,7 +26,6 @@ watch(url, async (newdata, olddata) => {
 
 
 async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 
   ifdata.value = false;
   ElNotification({
