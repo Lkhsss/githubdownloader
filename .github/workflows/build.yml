@@ -5,6 +5,7 @@ on:
   push:
     tags:
     - "v*.*.*"
+  workflow_dispatch:
 
 jobs:
   release:
@@ -107,7 +108,7 @@ jobs:
       
     - name: Build
       shell: bash
-      run: $BUILD_CMD build --locked --release --target=${{ matrix.target }} ${{ matrix.cargo-flags }}
+      run: $BUILD_CMD build --release --target=${{ matrix.target }} ${{ matrix.cargo-flags }}
 
     - name: Build Archive
       shell: bash
