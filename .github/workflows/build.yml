@@ -79,8 +79,7 @@ jobs:
       uses: dtolnay/rust-toolchain@stable
       with:
         targets: ${{ matrix.target }}
-      run: |
-        cargo install tauri-cli --version "^2.0.0" --locked
+        
 
     - name: Install cross
       if: matrix.use-cross
@@ -92,6 +91,9 @@ jobs:
       if: matrix.use-cross
       shell: bash
       run: echo "BUILD_CMD=cross" >> $GITHUB_ENV
+
+    - name: 安装Tauri构建工具
+      run: cargo install tauri-cli --version "^2.0.0" --locked
   
     - name: Show Version Information (Rust, cargo, GCC)
       shell: bash
